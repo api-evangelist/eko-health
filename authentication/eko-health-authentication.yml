@@ -1,0 +1,64 @@
+generated: '2026-08-04'
+method: searched
+source: https://www.ekohealth.com/.well-known/openid-configuration
+docs: https://support.ekohealth.com/hc/en-us
+notes: >-
+  Eko Health publishes no OpenAPI, so this profile was NOT derived from securitySchemes.
+  It is assembled from two live, anonymously fetched sources: the OAuth/OIDC discovery
+  documents served on www.ekohealth.com (which govern the storefront + customer-account
+  + MCP surface), and an observed 401 challenge on the Eko Connect API host. Nothing
+  here is inferred beyond those observations.
+summary:
+  types: [oauth2, openIdConnect, undocumented]
+  api_key_in: []
+  oauth2_flows: [authorizationCode, refreshToken, jwt-bearer]
+schemes:
+- name: shopify-customer-account-oidc
+  type: openIdConnect
+  applies_to: https://www.ekohealth.com (storefront, customer account, /api/mcp)
+  openIdConnectUrl: https://www.ekohealth.com/.well-known/openid-configuration
+  issuer: https://shopify.com/authentication/7156111
+  authorization_endpoint: https://account.ekohealth.com/authentication/oauth/authorize
+  token_endpoint: https://account.ekohealth.com/authentication/oauth/token
+  end_session_endpoint: https://account.ekohealth.com/authentication/logout
+  jwks_uri: https://account.ekohealth.com/authentication/.well-known/jwks.json
+  response_types_supported: [code]
+  grant_types_supported:
+  - authorization_code
+  - refresh_token
+  - 'urn:ietf:params:oauth:grant-type:jwt-bearer'
+  token_endpoint_auth_methods_supported: [client_secret_basic]
+  code_challenge_methods_supported: [S256]
+  id_token_signing_alg_values_supported: [RS256]
+  subject_types_supported: [public]
+  claims_supported: [iss, sub, aud, exp, iat, nonce, sid, email, email_verified]
+  scopes: [openid, email, 'customer-account-api:full', 'customer-account-mcp-api:full']
+  sources: [well-known/eko-health-openid-configuration.json]
+- name: oauth-protected-resource
+  type: oauth2
+  applies_to: https://www.ekohealth.com
+  bearer_methods_supported: [header]
+  authorization_servers:
+  - https://account.ekohealth.com
+  - https://shopify.com/authentication/7156111
+  sources: [well-known/eko-health-oauth-protected-resource.json]
+- name: eko-connect-api
+  type: undocumented
+  applies_to: https://api.ekodevices.com
+  observed: >-
+    Unauthenticated GET https://api.ekodevices.com/api/v1/recordings returns HTTP 401
+    with a 60-byte body, confirming a token/credential-gated REST surface. Neither
+    /oauth/authorize nor /oauth/token exists (404), and no OIDC or RFC 8414 metadata is
+    served on the host, so the credential model is not publicly disclosed. Eko issues
+    Enterprise SDK credentials through sales.
+  sources: [live probe 2026-08-04]
+anonymous_surfaces:
+- url: https://www.ekohealth.com/api/mcp
+  note: MCP tools/list succeeds with no credentials (HTTP 200).
+- url: https://www.ekohealth.com/.well-known/ucp
+  note: UCP merchant profile is public.
+gated_surfaces:
+- url: https://www.ekohealth.com/api/ucp/mcp
+  note: HTTP 422 invalid_profile_url — requires a caller-supplied agent profile URI.
+- url: https://api.ekodevices.com/api/v1/recordings
+  note: HTTP 401.

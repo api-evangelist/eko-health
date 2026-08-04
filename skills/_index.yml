@@ -1,0 +1,20 @@
+generated: '2026-08-04'
+method: generated
+source: mcp/eko-health-mcp-tools.json
+notes: >-
+  Eko Health publishes no OpenAPI, so skills here are grounded in the live MCP tool
+  schemas harvested from https://www.ekohealth.com/api/mcp rather than in operationIds.
+  Every tool name and parameter referenced in a skill appears verbatim in
+  mcp/eko-health-mcp-tools.json. No skill is authored for the Eko Connect Enterprise
+  SDK / api.ekodevices.com surface — it is auth-gated with no public contract to ground
+  steps in.
+skills:
+- file: eko-health-shop-the-catalog.md
+  name: Shop the Eko Health catalog
+  api: mcp/eko-health-mcp.yml
+  operations:
+  - search_catalog
+  - get_product_details
+  - get_cart
+  - update_cart
+  - search_shop_policies_and_faqs

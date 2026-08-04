@@ -1,0 +1,34 @@
+generated: '2026-08-04'
+method: searched
+source: https://www.ekohealth.com/pages/software
+notes: >-
+  Eko Health's published software pricing table. Prices are annual and taken verbatim
+  from the "Price Per Year" row of the comparison table on the Eko software page.
+  These are product/membership plans, not API plans — Eko publishes no API pricing;
+  Eko Connect Enterprise SDK access is quoted through sales.
+currency: USD
+period: year
+plans:
+- name: Eko Standard
+  price: 0
+  price_label: Free
+  audience: Individual providers
+- name: Eko+
+  price: 119.99
+  price_label: $119.99
+  audience: Individual providers
+  note: Required to access Eko AI (murmur, AFib, low ejection fraction detection).
+- name: Eko Telehealth
+  price: null
+  price_label: Contact Sales
+  audience: Health systems and telehealth vendors
+  note: The commercial home of Eko Connect (Enterprise SDK + API).
+- name: Eko SENSORA
+  price: null
+  price_label: Contact Sales
+  audience: Health systems
+  note: Enterprise AI cardiac disease detection platform; billed under CPT 0962T; requires an institutional contract.
+- name: Eko Vet+
+  price: 180
+  price_label: $180
+  audience: Veterinary professionals

@@ -1,0 +1,78 @@
+generated: '2026-08-04'
+method: derived
+source: mcp/eko-health-mcp-tools.json + well-known/ + live probes 2026-08-04
+notes: >-
+  Eko Health publishes no API reference, so these conventions are derived from the two
+  surfaces that ARE publicly observable: the live storefront MCP server (whose tool
+  descriptions and JSON Schemas state the request/response semantics outright) and the
+  OAuth/OIDC discovery documents. Anything not observable is recorded as null rather
+  than guessed. The Eko Connect REST API at api.ekodevices.com is auth-gated and
+  contributes only its 401 challenge.
+authentication:
+  storefront_mcp: none required for tools/list; bearer token in the Authorization header
+    for customer-scoped calls (bearer_methods_supported=[header]).
+  customer_account: OAuth 2.0 authorization code + PKCE (S256) via
+    account.ekohealth.com; see authentication/eko-health-authentication.yml
+  eko_connect: undisclosed; unauthenticated calls return HTTP 401
+idempotency:
+  supported: null
+  header: null
+  note: >-
+    No idempotency key, header, or retry-safety contract is documented on any public
+    Eko Health surface, and none appears in the MCP tool input schemas. NOT asserted —
+    no Idempotency pointer is wired in apis.yml.
+pagination:
+  style: cursor
+  scope: storefront MCP search_catalog
+  request_field: catalog.pagination
+  response_field: pagination.cursor
+  evidence: >-
+    "Results are paginated, with initial results limited to improve experience. Use the
+    pagination.cursor from the response to fetch additional pages when users request
+    more results." — search_catalog tool description.
+localization:
+  parameters: [country, language, currency]
+  standards:
+  - ISO 3166-1 alpha-2 (country / address_country)
+  - ISO 639-1 (language on get_product_details)
+  - IETF BCP 47 (language on search_catalog context)
+  - ISO 4217 (currency)
+identifiers:
+  form: Shopify global IDs
+  example_pattern: 'gid://shopify/Product/{id}'
+  evidence: get_product_details.product_id description
+schema_dialect: https://json-schema.org/draft/2020-12/schema
+error_envelope:
+  format: JSON-RPC 2.0 error object
+  fields: [jsonrpc, id, error.code, error.message, error.data]
+  observed_example:
+    endpoint: https://www.ekohealth.com/api/ucp/mcp
+    http_status: 422
+    body: '{"jsonrpc":"2.0","id":1,"error":{"code":-32001,"message":"UCP discovery failed","data":{"code":"invalid_profile_url","content":"Unable to fetch agent profile: Missing profile uri","continue_url":"https://eko-devices.myshopify.com/"}}}'
+  rfc9457: false
+versioning:
+  api: URI path (/api/v1/ on api.ekodevices.com)
+  protocol: UCP versions 2026-04-08 (latest stable) and 2026-01-23, declared in
+    /.well-known/ucp
+  see: lifecycle/eko-health-lifecycle.yml
+rate_limits:
+  documented: false
+  note: No rate-limit documentation or response headers are published.
+request_tracing:
+  request_id_header: null
+  note: Not documented.
+agent_rules:
+  source: https://www.ekohealth.com/agents.md
+  rules:
+  - Checkout requires contemporaneous human approval; agents must not complete payment
+    automatically.
+  - Agents transacting on a buyer's behalf must use the UCP/MCP endpoints or the Shopify
+    shopping skill.
+  - Recommended agent flow — discover (/.well-known/ucp), search_catalog, create_cart,
+    create_checkout, update_checkout, complete_checkout.
+cross_links:
+  authentication: authentication/eko-health-authentication.yml
+  scopes: scopes/eko-health-scopes.yml
+  lifecycle: lifecycle/eko-health-lifecycle.yml
+  well_known: well-known/eko-health-well-known.yml
+  mcp: mcp/eko-health-mcp.yml

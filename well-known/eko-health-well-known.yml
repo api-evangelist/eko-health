@@ -1,0 +1,97 @@
+generated: '2026-08-04'
+method: searched
+source: probes of every host in apis.yml on 2026-08-04
+hosts:
+- host: https://www.ekohealth.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: eko-health-openid-configuration.json
+    note: >-
+      Shopify customer-account OIDC discovery. issuer
+      https://shopify.com/authentication/7156111; endpoints served from
+      account.ekohealth.com; scopes_supported includes customer-account-mcp-api:full.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: eko-health-oauth-authorization-server.json
+    note: RFC 8414 metadata; identical body to the OIDC discovery document.
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: eko-health-oauth-protected-resource.json
+    note: >-
+      RFC 9728; resource https://www.ekohealth.com, authorization_servers
+      [https://account.ekohealth.com, https://shopify.com/authentication/7156111].
+  - path: /.well-known/ucp
+    status: 200
+    file: eko-health-ucp.json
+    note: >-
+      Universal Commerce Protocol merchant profile — supported versions 2026-04-08
+      and 2026-01-23, dev.ucp.shopping service over MCP, checkout/cart/fulfillment/
+      discount/order capabilities, and Google Pay / Shopify card / Shop Pay payment
+      handlers.
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://ekohealth.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    note: same document as www.ekohealth.com
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://api.ekodevices.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://ekodevices.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    note: same Shopify storefront as ekohealth.com
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+findings:
+  security_txt: false
+  api_catalog: false
+  agent_card: false
+  oidc_discovery: true
+  oauth_authorization_server: true
+  oauth_protected_resource: true
+  ucp_profile: true

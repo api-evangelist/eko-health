@@ -1,0 +1,49 @@
+generated: '2026-08-04'
+method: searched
+source: https://status.ekohealth.com/
+versioning:
+  scheme: uri-path
+  current: v1
+  evidence: >-
+    The only publicly observable version segment is /api/v1/ on api.ekodevices.com
+    (an unauthenticated GET of /api/v1/recordings returns HTTP 401 while /api/v2 and
+    /api/v3 return 404). Eko publishes no versioning policy page.
+  docs: null
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: >-
+    No deprecation policy, sunset policy, or RFC 8594 Sunset/Deprecation header support
+    is published on any Eko Health surface. Not asserted here.
+sla:
+  url: https://www.ekohealth.com/pages/telehealth-integrations
+  uptime_target: 99.99%
+  note: >-
+    "99.99% uptime" is a marketing claim on the Eko Connect integrations page, not a
+    contractual SLA document. No public SLA terms were found.
+status_page:
+  url: https://status.ekohealth.com/
+  provider: Atlassian Statuspage
+  page_id: yx36vmvnx8nd
+  api: https://status.ekohealth.com/api/v2/summary.json
+  component_groups:
+  - group: Eko Enterprise SDK
+    components:
+    - Enterprise SDK EAS
+    - Enterprise SDK Livestream
+  - group: Eko
+    components:
+    - Eko iOS
+    - Eko Android
+    - Eko Windows
+    - Eko Dashboard
+    - Eko Livestream
+    - Eko Video
+    - Eko Support
+    - Eko EAS
+  observed: '2026-08-04 — all 12 components operational'
+deprecated_operations: []
+x-evidence:
+  fetched: '2026-08-04'
+  status_page_http_status: 200
+  status_api_http_status: 200

@@ -1,0 +1,87 @@
+generated: '2026-08-04'
+method: searched
+source: https://support.ekohealth.com/hc/en-us/articles/13156748752155-Security-and-HIPAA
+notes: >-
+  Eko Health publishes no OpenAPI, so no standard here is derived from a machine-readable
+  contract. Every entry below is grounded in a probed document or a published Eko claim,
+  and every "conforms: false" means "no public evidence found", not "known to fail".
+standards:
+- id: hipaa
+  conforms: true
+  evidence: >-
+    "Eko maintains HIPAA compliant policies, procedures, and technical safeguards for
+    patient and customer data" and "Eko maintains BAA agreements with subcontractors and
+    our hosting providers to ensure HIPAA compliance" —
+    https://support.ekohealth.com/hc/en-us/articles/13156748752155-Security-and-HIPAA
+- id: soc2
+  conforms: true
+  evidence: >-
+    "Eko is Service Organization Control 2 (SOC 2) certified to keep health system and
+    patient data safe." Report type (Type I/II) and auditor are not published; no trust
+    center or downloadable report was found.
+- id: fda-510k
+  conforms: true
+  evidence: >-
+    Eko markets "9 FDA clearances" for its devices and Eko AI algorithms (murmur, AFib,
+    low ejection fraction) — https://www.ekohealth.com/pages/ai-stethoscope-ecg
+- id: oauth2
+  conforms: true
+  evidence: >-
+    RFC 8414 authorization-server metadata at
+    https://www.ekohealth.com/.well-known/oauth-authorization-server (HTTP 200);
+    grant_types_supported [authorization_code, refresh_token,
+    urn:ietf:params:oauth:grant-type:jwt-bearer]; PKCE S256 supported. Storefront/customer
+    account identity only.
+- id: oidc
+  conforms: true
+  evidence: >-
+    OpenID Connect discovery at https://www.ekohealth.com/.well-known/openid-configuration
+    (HTTP 200); issuer https://shopify.com/authentication/7156111; RS256 id tokens.
+- id: rfc9728-oauth-protected-resource
+  conforms: true
+  evidence: >-
+    https://www.ekohealth.com/.well-known/oauth-protected-resource returns HTTP 200 with
+    resource + authorization_servers + bearer_methods_supported.
+- id: model-context-protocol
+  conforms: true
+  evidence: >-
+    Live JSON-RPC 2.0 MCP server at https://www.ekohealth.com/api/mcp; anonymous
+    tools/list returned HTTP 200 with 5 tools and JSON input schemas.
+- id: ucp
+  conforms: true
+  evidence: >-
+    Universal Commerce Protocol merchant profile at
+    https://www.ekohealth.com/.well-known/ucp declaring versions 2026-04-08 and
+    2026-01-23 with dev.ucp.shopping cart/checkout/fulfillment/discount/order
+    capabilities.
+- id: llmstxt
+  conforms: true
+  evidence: https://www.ekohealth.com/llms.txt returns HTTP 200 (4,236 bytes).
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returned 404 on all four probed hosts.
+- id: a2a
+  conforms: false
+  evidence: >-
+    /.well-known/agent-card.json and /.well-known/agent.json returned 404 on all four
+    probed hosts.
+- id: openapi
+  conforms: false
+  evidence: >-
+    No OpenAPI/Swagger document found. Probed /openapi.json, /openapi.yaml, /swagger.json,
+    /v1/openapi.json, /api-docs, /docs, /redoc, /api/swagger_doc.json on
+    api.ekodevices.com (all 404) and the docs/dashboard hosts (SPA shell only).
+- id: fhir
+  conforms: false
+  evidence: No FHIR claim or FHIR-shaped endpoint found on any public Eko surface.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No public error contract published.
+- id: iso-27001
+  conforms: false
+  evidence: Not claimed on any public Eko page; only SOC 2 and HIPAA are asserted.
+- id: gdpr
+  conforms: false
+  evidence: >-
+    No explicit GDPR statement located; the privacy policy is a help-center article
+    (https://support.ekohealth.com/hc/en-us/articles/13156748616731-Privacy-Policy).

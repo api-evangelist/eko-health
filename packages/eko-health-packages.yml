@@ -1,0 +1,50 @@
+generated: '2026-08-04'
+method: searched
+source: npm, PyPI, Maven Central, CocoaPods trunk, RubyGems, GitHub (2026-08-04 sweep)
+packages: []
+notes: >-
+  No first-party Eko Health client library is published to any public package registry.
+  Eko does ship real SDKs — the Eko Connect Enterprise SDK for Android and iOS, listed
+  as monitored components on status.ekohealth.com ("Eko Enterprise SDK", "Enterprise SDK
+  EAS", "Enterprise SDK Livestream") — but they are distributed under a commercial
+  agreement through Eko sales, not from a public registry, so no `SDKs` pointer is wired
+  in apis.yml. Everything named "eko" that IS on the registries belongs to unrelated
+  companies (Eko India Financial Services, eko interactive video / @ekolabs, Fellou
+  @eko-ai, and the NNPDF "eko" Evolution Kernel Operators Python package).
+registries_probed:
+- registry: npm
+  queries: [eko-sdk, '@ekohealth/sdk', eko-stethoscope, ekodevices, 'eko stethoscope', ekohealth]
+  first_party_hits: 0
+- registry: pypi
+  queries: [eko, ekohealth, eko-health, ekodevices]
+  first_party_hits: 0
+  note: pypi.org/project/eko exists but is NNPDF's "Evolution Kernel Operators", unrelated.
+- registry: maven-central
+  queries: [eko]
+  first_party_hits: 0
+- registry: cocoapods
+  queries: [EkoSDK, EkoDevicesSDK]
+  first_party_hits: 0
+- registry: rubygems
+  queries: [superehr]
+  first_party_hits: 0
+github_organization:
+  url: https://github.com/EkoDevices
+  public_repos: 5
+  note: >-
+    The public org carries internal tooling and forks, not client SDKs — waveform (Ruby,
+    audio waveform images), SuperEHR (Ruby, EHR integration), blessed-android (fork of a
+    BLE library), meta_events (fork), firebase-app-distribution-action. None is published
+    to a package registry.
+private_sdks:
+- name: Eko Connect Enterprise SDK (Android)
+  distribution: commercial / sales-gated
+  docs: https://www.ekohealth.com/pages/telehealth-integrations
+- name: Eko Connect Enterprise SDK (iOS)
+  distribution: commercial / sales-gated
+  docs: https://www.ekohealth.com/pages/telehealth-integrations
+consumer_apps:
+- name: 'Eko: Digital Stethoscopes (iOS)'
+  url: https://apps.apple.com/us/app/eko-digital-stethoscope-ecg/id1026457544
+- name: 'Eko: Digital Stethoscopes (Android)'
+  url: https://play.google.com/store/apps/details?id=com.ekodevices.android

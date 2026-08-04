@@ -1,0 +1,23 @@
+generated: '2026-08-04'
+method: searched
+source: https://www.ekohealth.com/llms.txt
+files:
+- file: eko-health-llms.txt
+  url: https://www.ekohealth.com/llms.txt
+  http_status: 200
+  bytes: 4236
+  content_type: text/markdown
+- file: eko-health-agents.md
+  url: https://www.ekohealth.com/agents.md
+  http_status: 200
+  bytes: 4193
+  content_type: text/markdown
+notes: >-
+  Eko Health serves the same document at /llms.txt and /agents.md, both advertised in
+  /robots.txt. It is the Shopify storefront agent-instructions file: it names the UCP
+  discovery document, the UCP/MCP endpoint, the recommended agent flow, the supported
+  UCP versions (2026-04-08, 2026-01-23), and the rule that checkout requires
+  contemporaneous human approval. It does not document the Eko Connect device/recording
+  API. Both files are saved verbatim.
+x-evidence:
+  fetched: '2026-08-04'

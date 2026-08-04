@@ -1,23 +1,137 @@
 aid: eko-health
 name: Eko Health
-description: 'Eko Health is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Eko Health Inc. is an Oakland, California digital health company that
+  builds FDA-cleared digital stethoscopes (CORE 500, CORE Digital Attachment, DUO,
+  and the 3M Littmann CORE) together with cloud software and AI algorithms for the
+  detection of cardiovascular and pulmonary disease. Its platform pairs the hardware
+  with the Eko App (iOS/Android), the Eko web Dashboard, Eko AI murmur/AFib/low-ejection-fraction
+  detection, and SENSORA, an enterprise AI cardiac disease detection platform for health
+  systems. For integrators Eko publishes Eko Connect — an Enterprise SDK and API surface
+  that live-streams auscultation audio and single-lead ECG into third-party telehealth,
+  telemedicine cart, and life-science applications. The Enterprise SDK and its backing
+  REST API at api.ekodevices.com are commercially gated: there is no public developer
+  portal, OpenAPI, or self-serve documentation, and access is arranged through Eko sales.
+  The company''s public agent-facing surface is its Shopify storefront, which serves a
+  live anonymous MCP server, an agents.md / llms.txt, and Universal Commerce Protocol
+  discovery.'
 url: https://raw.githubusercontent.com/api-evangelist/eko-health/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-04'
 modified: '2026-08-04'
+image: https://www.ekohealth.com/cdn/shop/files/eko-logo_1.svg?v=1743130101&width=500
 tags:
 - Company
-apis: []
+- Health
+- Healthcare
+- Medical Devices
+- Digital Health
+- Telehealth
+- Artificial Intelligence
+- Cardiology
+- Remote Patient Monitoring
+- Commerce
+apis:
+- aid: eko-health:eko-storefront-mcp
+  name: Eko Health Storefront MCP
+  description: 'A live, anonymously reachable Model Context Protocol server published on
+    Eko Health''s own www.ekohealth.com host, implementing the Shopify storefront /
+    Universal Commerce Protocol (UCP) shopping service. A tools/list call returns five
+    real tools with full JSON input schemas: search_catalog, get_product_details, get_cart,
+    update_cart, and search_shop_policies_and_faqs. The store also publishes an agents.md
+    (mirrored at /llms.txt), a UCP merchant profile at /.well-known/ucp, and OAuth/OIDC
+    discovery documents that expose the customer-account-mcp-api:full scope. The parallel
+    UCP MCP endpoint at /api/ucp/mcp requires an agent profile URI and returns a 422
+    UCP discovery failure without one.'
+  humanURL: https://www.ekohealth.com/agents.md
+  baseURL: https://www.ekohealth.com/api/mcp
+  tags:
+  - MCP
+  - Commerce
+  - Agents
+  properties:
+  - type: MCPServer
+    url: mcp/eko-health-mcp.yml
+  - type: LLMsTxt
+    url: llms/eko-health-llms.txt
+- aid: eko-health:eko-connect
+  name: Eko Connect Enterprise SDK and API
+  description: 'Eko Connect is Eko Health''s integration surface for telehealth vendors,
+    telemedicine cart makers, and life-science partners. It ships as native Android and
+    iOS SDKs plus a REST API hosted at api.ekodevices.com that carries auscultation
+    recordings, live audio/ECG streaming, and dashboard data. The service is real and
+    live — an unauthenticated GET of /api/v1/recordings returns HTTP 401 — but the
+    contract is commercially gated: Eko publishes no developer portal, no OpenAPI or
+    Swagger document, and no self-serve documentation at any of the probed hosts, so
+    integrators obtain the SDK and credentials through Eko sales. Its component health
+    (Enterprise SDK, Enterprise SDK EAS, Enterprise SDK Livestream, Eko Dashboard,
+    Eko Livestream, Eko Video) is published on the Eko status page.'
+  humanURL: https://www.ekohealth.com/pages/telehealth-integrations
+  baseURL: https://api.ekodevices.com
+  tags:
+  - SDK
+  - Telehealth
+  - Streaming
+  - Medical Devices
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/eko-health-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/eko-health_stock/
+  url: https://www.ekohealth.com/
+- type: Support
+  url: https://support.ekohealth.com/hc/en-us
+- type: Blog
+  url: https://www.ekohealth.com/blogs/eko-blog
+- type: GitHubOrganization
+  url: https://github.com/EkoDevices
+- type: Pricing
+  url: https://www.ekohealth.com/pages/software
+- type: SignUp
+  url: https://account.ekohealth.com/
+- type: TermsOfService
+  url: https://support.ekohealth.com/hc/en-us/articles/13156765697563-Terms-of-Service
+- type: PrivacyPolicy
+  url: https://support.ekohealth.com/hc/en-us/articles/13156748616731-Privacy-Policy
+- type: StatusPage
+  url: https://status.ekohealth.com/
+- type: Security
+  url: https://support.ekohealth.com/hc/en-us/articles/13156748752155-Security-and-HIPAA
+- type: Compliance
+  url: https://support.ekohealth.com/hc/en-us/articles/13156748752155-Security-and-HIPAA
+- type: VulnerabilityDisclosure
+  url: security/eko-health-vulnerability-disclosure.yml
+- type: WellKnown
+  url: well-known/eko-health-well-known.yml
+- type: Authentication
+  url: authentication/eko-health-authentication.yml
+- type: OAuthScopes
+  url: scopes/eko-health-scopes.yml
+- type: OpenIDConnect
+  url: well-known/eko-health-openid-configuration.json
+- type: Conformance
+  url: conformance/eko-health-conformance.yml
+- type: Lifecycle
+  url: lifecycle/eko-health-lifecycle.yml
+- type: Conventions
+  url: conventions/eko-health-conventions.yml
+- type: Packages
+  url: packages/eko-health-packages.yml
+- type: Plans
+  url: plans/eko-health-plans.yml
+- type: MCPServer
+  url: mcp/eko-health-mcp.yml
+- type: LLMsTxt
+  url: llms/eko-health-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-08-04'
+  status: enriched
+  artifacts_added: 21
+  pass: local-v1
