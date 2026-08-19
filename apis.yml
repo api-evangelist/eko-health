@@ -17,7 +17,7 @@ description: 'Eko Health Inc. is an Oakland, California digital health company t
 url: https://raw.githubusercontent.com/api-evangelist/eko-health/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-08-04'
 modified: '2026-08-04'
 image: https://www.ekohealth.com/cdn/shop/files/eko-logo_1.svg?v=1743130101&width=500
