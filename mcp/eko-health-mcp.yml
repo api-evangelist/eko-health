@@ -2,15 +2,12 @@ generated: '2026-08-04'
 method: searched
 source: https://www.ekohealth.com/api/mcp
 status: published
-notes: >-
-  Eko Health serves a live, anonymously reachable MCP server from its own
-  www.ekohealth.com host. The implementation is the Shopify storefront / Universal
-  Commerce Protocol (UCP) shopping service, advertised by Eko in its own
-  /robots.txt, /agents.md and /llms.txt. An unauthenticated JSON-RPC tools/list
-  returned HTTP 200 with five tools and full JSON input schemas, saved verbatim to
-  eko-health-mcp-tools.json. This is a commerce surface for the Eko storefront, not
-  the clinical Eko Connect device/recording API — that API (api.ekodevices.com) is
-  auth-gated and publishes no MCP server.
+notes: Eko Health serves a live, anonymously reachable MCP server from its own www.ekohealth.com host.
+  The implementation is the Shopify storefront / Universal Commerce Protocol (UCP) shopping service, advertised
+  by Eko in its own /robots.txt, /agents.md and /llms.txt. An unauthenticated JSON-RPC tools/list returned
+  HTTP 200 with five tools and full JSON input schemas, saved verbatim to eko-health-mcp-tools.json. This
+  is a commerce surface for the Eko storefront, not the clinical Eko Connect device/recording API — that
+  API (api.ekodevices.com) is auth-gated and publishes no MCP server.
 server:
   name: eko-health-storefront
   transport: http
@@ -22,10 +19,9 @@ related_endpoints:
 - name: UCP MCP endpoint
   url: https://www.ekohealth.com/api/ucp/mcp
   status: gated
-  evidence: >-
-    POST tools/list returned HTTP 422 {"code":"invalid_profile_url","content":"Unable
-    to fetch agent profile: Missing profile uri"} — the UCP transport requires a
-    caller-supplied agent profile URI.
+  evidence: 'POST tools/list returned HTTP 422 {"code":"invalid_profile_url","content":"Unable to fetch
+    agent profile: Missing profile uri"} — the UCP transport requires a caller-supplied agent profile
+    URI.'
 - name: UCP discovery
   url: https://www.ekohealth.com/.well-known/ucp
   status: 200
@@ -36,25 +32,27 @@ related_endpoints:
   file: ../llms/eko-health-agents.md
 tools:
 - name: search_catalog
-  description: >-
-    Search for products from the online store, hosted on Shopify. Supports natural
-    language queries, specific filter criteria, or both; results are paginated.
-  input_schema_properties: [meta, catalog]
+  description: Search for products from the online store, hosted on Shopify. Supports natural language
+    queries, specific filter criteria, or both; results are paginated.
+  input_schema_properties:
+  - meta
+  - catalog
 - name: get_product_details
-  description: >-
-    Look up a product by ID. Pass the options parameter to select a specific variant
-    for the product card; without options the first available variant is returned.
-  input_schema_properties: [product_id, options, country, language]
+  description: Look up a product by ID. Pass the options parameter to select a specific variant for the
+    product card; without options the first available variant is returned.
+  input_schema_properties:
+  - product_id
+  - options
+  - country
+  - language
 - name: get_cart
-  description: >-
-    Get the cart including items, shipping options, discount info, and checkout url
-    for a given cart id.
-  input_schema_properties: [cart_id]
+  description: Get the cart including items, shipping options, discount info, and checkout url for a given
+    cart id.
+  input_schema_properties:
+  - cart_id
 - name: update_cart
-  description: >-
-    Perform updates to a cart, including adding/removing/updating line items, buyer
-    information, shipping details, discount codes, gift cards and notes in one
-    consolidated call.
+  description: Perform updates to a cart, including adding/removing/updating line items, buyer information,
+    shipping details, discount codes, gift cards and notes in one consolidated call.
   input_schema_properties:
   - cart_id
   - add_items
@@ -68,15 +66,24 @@ tools:
   - gift_card_codes
   - note
 - name: search_shop_policies_and_faqs
-  description: >-
-    Used to get facts about the store's policies, products, or services (return
-    policy, shipping policy, contact details, and similar questions).
-  input_schema_properties: [query, context]
+  description: Used to get facts about the store's policies, products, or services (return policy, shipping
+    policy, contact details, and similar questions).
+  input_schema_properties:
+  - query
+  - context
 x-evidence:
   fetched: '2026-08-04'
   url: https://www.ekohealth.com/api/mcp
-  method: 'POST {"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+  method: POST {"jsonrpc":"2.0","id":1,"method":"tools/list"}
   http_status: 200
   content_type: application/json
   bytes: 9041
   tools_returned: 5
+deployment:
+  mode: remote
+  endpoint: https://www.ekohealth.com/api/mcp
+  verified: probed
+  probe: live
+  tools: 5
+  checked: '2026-08-12'
+  source: catalog MCP census
