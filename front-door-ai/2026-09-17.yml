@@ -1,0 +1,27 @@
+# Front Door AI Index — eko-health — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: eko-health
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.ekohealth.com
+  final_host: www.ekohealth.com
+  ownership: own
+  owner: eko-health
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 20
+  host_score: 20
+  density: 14.43
+  words: 1386
+  tiers:
+    agentic: 0
+    core: 20
+    model: 0
+  ambiguous: 2
+  top_terms:
+    AI: 20
+    intelligence: 1
+    smart: 1
