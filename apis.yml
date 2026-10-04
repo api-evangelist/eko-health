@@ -81,6 +81,9 @@ apis:
     url: mcp/eko-health-mcp.yml
   - type: LLMsTxt
     url: llms/eko-health-llms.txt
+  x-surface: platform-generated
+  x-platform: shopify
+  x-platform-surface: storefront-mcp
 - aid: eko-health:eko-connect
   name: Eko Connect Enterprise SDK and API
   description: 'Eko Connect is Eko Health''s integration surface for telehealth vendors,
