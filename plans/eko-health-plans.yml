@@ -32,3 +32,41 @@ plans:
   price: 180
   price_label: $180
   audience: Veterinary professionals
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - subscription
+  units: []
+  plans:
+  - name: Eko Standard
+    access: other
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Eko+
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
+  - name: Eko Telehealth
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Eko SENSORA
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods: []
+  - name: Eko Vet+
+    access: other
+    model: subscription
+    model_how: derived
+    units: []
+    periods: []
