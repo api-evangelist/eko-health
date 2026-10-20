@@ -1,0 +1,45 @@
+edges:
+- partner_name: FDA (AI-enabled medical devices)
+  partner: null
+  partner_match: register-name
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/pmn.cfm?ID=K251494
+  category: FDA-authorized AI-enabled medical device
+  contract_reference:
+    register: FDA AI-enabled medical devices list (fda.gov/media/178541 CSV)
+    standard: FDA AI-enabled medical device authorization
+    spec_file: null
+    role: fda-ai-device-holder
+    registered_name: Eko Health, Inc.
+    register_id: K251494
+    matched_domain: null
+    matched_by: register-name
+    identity: register-name
+    identity_source: register-name
+    devices_sample:
+    - Eko Foundation Analysis Software with Transformers (EFAST)
+    - Eko Low Ejection Fraction Tool (ELEFT)
+    certified_products:
+    - product: FDA-authorized AI-enabled device (Cardiovascular)
+      panel: Cardiovascular
+      lapsed: false
+      latest_authorization: '2025-08-12'
+    signal_note: certified_products = one entry per lead review PANEL, never per device; devices and submission
+      numbers are context, never counted. The list carries current authorizations only, so lapsed is always false
+    detected_by: sweep-medtech.py
+    detected: '2026-10-20'
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  detected_by: sweep-medtech.py
+  first_seen: '2026-10-20'
+generated: '2026-10-20'
+method: searched
+source:
+- https://lantern.healthit.gov/api/daily/download
+- https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices
+checked:
+- https://lantern.healthit.gov/api/daily/download
+- https://www.fda.gov/medical-devices/software-medical-device-samd/artificial-intelligence-enabled-medical-devices
