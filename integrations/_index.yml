@@ -39,3 +39,47 @@
       P856 not contradicting (Kin 2026-10-20 decision 2)
   status: not-a-workflow
   arazzo: null
+- slug: eko-health-health-canada-medical-device-licence
+  label: Health Canada (Medical Device Licence)
+  partner_name: Health Canada (Medical Device Licence)
+  category: Canadian medical device licence
+  type: contract
+  channel: regulator-register
+  evidence: https://health-products.canada.ca/api/medical-devices/company/?id=142981&lang=en&type=json
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: Health Canada Medical Devices Active Licence Listing (MDALL) public API (health-products.canada.ca/api/medical-devices)
+    standard: Canada Medical Devices Regulations (SOR/98-282), Medical Device Licence
+    spec_file: null
+    role: licence-holder
+    registered_name: EKO HEALTH, INC.
+    register_country: US
+    register_id: https://health-products.canada.ca/api/medical-devices/company/?id=142981&lang=en&type=json
+    company_status: A
+    matched_domain: null
+    matched_by: register-name
+    certified_products:
+    - product: Health Canada Medical Device Licence, Class II
+      product_type: Class II
+      risk_class: 2
+      lapsed: false
+      first_issued: '2016-10-19'
+      conditional: false
+      licences_sample:
+      - 3M LITTMANN CORE DIGITAL STETHOSCOPE
+      - CORE 300 DIGITAL STETHOSCOPE
+      - CORE 500 DIGITAL STETHOSCOPE
+      - EKO ANALYSIS SOFTWARE
+      - EKO ELECTRONIC STETHOSCOPE SYSTEM
+    signal_note: certified_products = one entry per device RISK CLASS licensed by Health Canada, lapsed when no
+      licence of that class is still issued (status I / D, no end date); licence names are a sample, licence and
+      device counts are context, never counted
+    detected_by: sweep-canada-medical-device-licensing.py
+    detected: '2026-10-22'
+    register_name_note: register-name 'ekohealth' = eko-health; no wikidata P856
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  status: not-a-workflow
+  arazzo: null
