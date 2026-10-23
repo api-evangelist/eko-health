@@ -83,3 +83,46 @@
       P856 not contradicting (Kin 2026-10-20 decision 2)
   status: not-a-workflow
   arazzo: null
+- slug: eko-health-fda-establishment-registration-and-device-listing-radiology-cardiovascular-robotic-surgery
+  label: FDA establishment registration and device listing (radiology / cardiovascular / robotic surgery)
+  partner_name: FDA establishment registration and device listing (radiology / cardiovascular / robotic surgery)
+  category: FDA-registered device establishment
+  type: contract
+  channel: regulator-register
+  evidence: https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfRL/rl.cfm
+  source: edge
+  relationship: standard-participant
+  contract_reference:
+    register: openFDA device/registrationlisting (owner/operator; specialties Radiology + Cardiovascular, product
+      code NAY)
+    standard: FDA establishment registration and device listing (21 CFR 807)
+    spec_file: null
+    role: fda-registered-owner-operator
+    registered_name: Eko Health, Inc.
+    matched_domain: null
+    matched_by: register-name
+    detected_by: sweep-fda-device-establishment-registrations.py
+    detected: '2026-10-23'
+    listed_specialties:
+    - Cardiovascular
+    specialty_tags:
+    - cardiovascular
+    owner_country: US
+    fei_sample:
+    - '3011651230'
+    product_codes_sample:
+    - DQD
+    - DPS
+    - QYE
+    - MWI
+    - DQC
+    nuclear_medicine_codes: []
+    signal_note: 'REGULATED through the establishment registration: a registration is not a clearance, so no certified_products;
+      specialties / product codes are context, never counted. Complements ivd-diagnostics'' registration edge (eight
+      other specialties)'
+    register_name_note: register-name 'ekohealth' = eko-health; no wikidata P856
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  status: not-a-workflow
+  arazzo: null
