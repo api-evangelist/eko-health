@@ -64,5 +64,114 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Eko Health is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/eko-health_stock/
+Eko Health Inc. is an Oakland, California digital health company that builds FDA-cleared digital stethoscopes (CORE 500, CORE Digital Attachment, DUO, and the 3M Littmann CORE) together with cloud software and AI algorithms for the detection of cardiovascular and pulmonary disease. Its platform pairs the hardware with the Eko App (iOS/Android), the Eko web Dashboard, Eko AI murmur/AFib/low-ejection-fraction detection, and SENSORA, an enterprise AI cardiac disease detection platform for health systems. For integrators Eko publishes Eko Connect — an Enterprise SDK and API surface that live-streams auscultation audio and single-lead ECG into third-party telehealth, telemedicine cart, and life-science applications. The Enterprise SDK and its backing REST API at api.ekodevices.com are commercially gated: there is no public developer portal, OpenAPI, or self-serve documentation, and access is arranged through Eko sales. The company's public agent-facing surface is its Shopify storefront, which serves a live anonymous MCP server, an agents.md / llms.txt, and Universal Commerce Protocol discovery.
+
+**Areas:** Company · Health · Healthcare · Medical Devices · Digital Health · Telehealth · Artificial Intelligence · Cardiology · Remote Patient Monitoring · Commerce
+
+## Eko Health on APIs.io
+
+Everything profiled for Eko Health is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/eko-health/](https://apis.io/providers/eko-health/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [Eko Health Storefront MCP](https://apis.io/apis/eko-health/eko-storefront-mcp/) — A live, anonymously reachable Model Context Protocol server published on Eko Health's own www.ekohealth.com host, implementing the Shopify storefront /…
+- [Eko Connect Enterprise SDK and API](https://apis.io/apis/eko-health/eko-connect/) — Eko Connect is Eko Health's integration surface for telehealth vendors, telemedicine cart makers, and life-science partners. It ships as native Android and…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [eko-health-storefront](https://apis.io/servers/eko-health/eko-health-storefront/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Eko Health Authentication](https://apis.io/security/eko-health/eko-health-authentication/)
+- [Eko Health Domain Security](https://apis.io/security/eko-health/eko-health-domain-security/)
+- [Eko Health Vulnerability Disclosure](https://apis.io/security/eko-health/eko-health-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Eko Health Scopes](https://apis.io/scopes/eko-health/eko-health-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Eko Health Plans](https://apis.io/plans/eko-health/eko-health-plans/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.ekohealth.com/)
+- [Pricing](https://www.ekohealth.com/pages/software)
+- [Sign up](https://account.ekohealth.com/)
+- [Support](https://support.ekohealth.com/hc/en-us)
+- [Blog](https://www.ekohealth.com/blogs/newsroom)
+- [Security](https://support.ekohealth.com/hc/en-us/articles/13156748752155-Security-and-HIPAA)
+- [Compliance](https://support.ekohealth.com/hc/en-us/articles/13156748752155-Security-and-HIPAA)
+- [Terms of service](https://support.ekohealth.com/hc/en-us/articles/13156765697563-Terms-of-Service)
+- [Privacy policy](https://support.ekohealth.com/hc/en-us/articles/13156748616731-Privacy-Policy)
+- [GitHub](https://github.com/EkoDevices)
+- [Status](https://status.ekohealth.com/)
+
+## API Evangelist rating
+
+**Kin Score 38.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 20.8 |
+| Access clarity | 84.2 |
+
+**Agent readiness 18.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | platform (partial credit) |
+
+**Regulatory alignment 39.0** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/eko-health/](https://apis.io/providers/eko-health/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Eko Health: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/eko-health/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
